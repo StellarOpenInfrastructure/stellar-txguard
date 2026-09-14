@@ -1,0 +1,15 @@
+# Default policy: sensible guard rails for a hot wallet that pays known counterparties.
+version: 1
+name: default-hot-wallet
+description: >
+  Caps single-transaction spend, blocks trading of unknown assets and requires a memo
+  so payments can be reconciled.
+on_violation: deny
+rules:
+  max_amount:
+    - asset: native
+      amount: "1000"
+    - asset: "*"
+      amount: "25000"
+  required_memo: true
+  simulation_required: true

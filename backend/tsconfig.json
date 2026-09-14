@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "noEmit": true,
+    "baseUrl": "..",
+    "paths": {
+      "@stellar-txguard/core": ["packages/core/src/index.ts"],
+      "@stellar-txguard/sdk": ["packages/sdk/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}

@@ -1,0 +1,19 @@
+# Payout policy: only USDC (testnet issuer) to an explicit destination list, with a daily cap.
+version: 1
+name: usdc-payouts
+description: Restricts a payout service to USDC transfers toward approved destinations.
+on_violation: deny
+rules:
+  allowed_assets:
+    - "USDC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
+  allowed_destinations:
+    - GAEB2QI5MVRGIBBJRSPYLQQ7WCLDFYFQ3Q2PRVMQBZQMEG3XF32OLBGA
+    - GCXQCY4DKUJDJ2FUJQYKBR5ULK2XKYQZGIHWDMPGA2N5UNCHBGRCRCFH
+  max_amount:
+    - asset: "USDC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
+      amount: "5000"
+  daily_limit:
+    - asset: "USDC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
+      amount: "20000"
+  required_memo:
+    types: [id, text]

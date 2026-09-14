@@ -1,0 +1,13 @@
+# Soroban policy: only interact with a known set of contracts, never deploy, always simulate.
+# Contract ids below are placeholders; replace them with your deployed contracts.
+version: 1
+name: soroban-allowlist
+description: Restricts a dApp backend to a fixed set of audited contracts.
+on_violation: review
+rules:
+  contract_allowlist:
+    - CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB
+    - CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC
+  simulation_required: true
+  blocked_assets:
+    - "SCAM:GAEB2QI5MVRGIBBJRSPYLQQ7WCLDFYFQ3Q2PRVMQBZQMEG3XF32OLBGA"

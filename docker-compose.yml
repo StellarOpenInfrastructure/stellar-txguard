@@ -1,0 +1,18 @@
+# Local development stack. The scaffold keeps policies and spending counters in
+# memory, so no database is required yet; PostgreSQL/Redis will be added with the
+# persistent SpendingLedger (see docs/drips-wave.md).
+services:
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "4010:4010"
+    environment:
+      NODE_ENV: production
+      LOG_LEVEL: info
+      STELLAR_NETWORK: testnet
+      POLICY_DIR: /app/examples/policies
+      SIMULATION_ENABLED: "true"
+      CORS_ORIGINS: "*"
+    restart: unless-stopped

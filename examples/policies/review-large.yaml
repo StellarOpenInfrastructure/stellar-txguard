@@ -1,0 +1,8 @@
+# Review policy: nothing is denied outright; large transfers are flagged for manual review.
+version: 1
+name: review-large-transfers
+on_violation: review
+rules:
+  max_amount:
+    - asset: native
+      amount: "10000"
